@@ -1,14 +1,15 @@
-<html>
-    <head>
-        <title>Hey</title>
-    </head>
-    <body>
-        {% for post in posts %}
-        <div>
-            <p> publicado: {{ post.published_date }}</p>
+{% extends 'pagina/base.html' %}
+
+<h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
             <h2><a href="">{{ post.title }}</a></h2>
             <p>{{ post.text|linebreaksbr }}</p>
         </div>
     {% endfor %}
-    </body>
-</html>
+{% endblock %}
