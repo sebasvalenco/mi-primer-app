@@ -44,7 +44,7 @@ def post_edit(request, pk):
         form = PostForm(instance=post)
     return render(request, 'pagina/post_edit.html', {'form': form})
 
-
+@login_required
 def add_comment_to_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
